@@ -7,13 +7,13 @@
      mail:
        host: "smtp.office365.com"
        port: 587
-       username: "jeladino@millenium.com.co"
+       username: "{{ correo }}"
        password: "{{ clave }}"
        from: "jeladino@millenium.com.co"
        to:
-        - helpdeskETB@etb.com.co
+        - "{{ correo }}"
        cc:
-        - networking@millenium.com.co
+        - estebanladino@usantotomas.edu.co
        subject: Millenum BPO | Limpieza tabla ARP-CRCs | CAV30CI1065030 / CAV30CI1065028
        body: |
         Buen día, Ingenieros ETB
