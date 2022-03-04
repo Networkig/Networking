@@ -8,7 +8,7 @@
        host: "smtp.office365.com"
        port: 587
        username: "jeladino@millenium.com.co"
-       password: "Bogota2021"
+       password: "{{ clave }}"
        from: "jeladino@millenium.com.co"
        to:
         - helpdeskETB@etb.com.co
