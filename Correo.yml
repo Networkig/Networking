@@ -11,9 +11,9 @@
        password: "{{ clave }}"
        from: "jeladino@millenium.com.co"
        to:
-        - helpdeskETB@etb.com.co
+        - jeladino@millenium.com.co
        cc:
-        - networking@millenium.com.co
+        - estebanladino@usantotomas.edu.co
        subject: Millenum BPO | Limpieza tabla ARP-CRCs | CAV30CI1065030 / CAV30CI1065028
        body: |
         Buen día, Ingenieros ETB
