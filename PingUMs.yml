@@ -8,7 +8,7 @@
 
     - name: Prueba de Ping 10.163.240.10
       shell: |
-              ping -c 4 10.163.240.10 | grep 'packet\|rtt'
+              ping -c 4 10.163.240.100 | grep 'packet\|rtt'
       register: a1
 
     - name: debug
@@ -33,7 +33,7 @@
              |||| PRUEBAS DE CONECTIVIDAD CODENSA  |||||
              * CANAL PRINCIPAL CLARO
              CPE(COD)<-- MPLS(X)<-- CPE CLARO(MILL)
-             PE -> 10.163.240.10
+             PE -> 10.163.240.100
              {{ a1.stdout_lines}}
              GERENTE DE CUENTA:: "{{ GTE_CUENTA_CODENSA }}"
              CODIGO DE SERVICIO:: MPC0137
