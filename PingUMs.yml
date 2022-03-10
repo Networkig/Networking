@@ -8,7 +8,7 @@
 
     - name: Prueba de Ping 10.163.240.10
       shell: |
-              ping -c 4 10.163.240.100 | grep 'packet\|rtt'
+              ping -c 4 10.163.240.10 | grep 'packet\|rtt'
       register: a1
 
     - name: debug
@@ -33,12 +33,12 @@
              |||| PRUEBAS DE CONECTIVIDAD CODENSA  |||||
              * CANAL PRINCIPAL CLARO
              CPE(COD)<-- MPLS(X)<-- CPE CLARO(MILL)
-             PE -> 10.163.240.100
+             PE -> 10.163.240.10
              {{ a1.stdout_lines}}
-             GERENTE DE CUENTA:: "{{ GTE_CUENTA_CODENSA }}"
-             CODIGO DE SERVICIO:: MPC0137
-             CONTACTO PROVEEDOR CLARO:: "{{ CONTACTO_PROVEEDOR_CLARO }}"
-             ESTATUS:: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: MPC0137
+             CONTACTO PROVEEDOR CLARO: "{{ CONTACTO_PROVEEDOR_CLARO }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
 
              __________________________________________________________
       when: b == "100%"
@@ -86,10 +86,10 @@
              CPE(COD)(X)<-- MPLS<-- CPE CLARO(MILL)
              CPE -> 10.163.239.158
              {{ a2.stdout_lines}}
-             GERENTE DE CUENTA:: "{{ GTE_CUENTA_CODENSA }}"
-             CODIGO DE SERVICIO:: MPC0137
-             CONTACTO PROVEEDOR CLARO:: "{{ CONTACTO_PROVEEDOR_CLARO }}"
-             ESTATUS:: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: MPC0137
+             CONTACTO PROVEEDOR CLARO: "{{ CONTACTO_PROVEEDOR_CLARO }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              __________________________________________________________
       when: b1 == "100%"
 
@@ -111,7 +111,7 @@
 
     - name: Prueba de Ping 10.246.220.173
       shell: |
-              ping -c 4 10.246.220.190 | grep 'packet\|rtt'
+              ping -c 4 10.246.220.173 | grep 'packet\|rtt'
       register: a3
 
     - name: debug
@@ -136,12 +136,12 @@
              |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
              * CANAL PRINCIPAL ETB
              CPE(COD)<-- MPLS(X)<-- CPE ETB(MILL)
-             PE -> 10.246.220.190
+             PE -> 10.246.220.173
              {{ a3.stdout_lines}}
-             GERENTE DE CUENTA:: "{{ GTE_CUENTA_CODENSA }}"
-             CODIGO DE SERVICIO:: CAV30CI1058109
-             CONTACTO PROVEEDOR CLARO:: "{{ CONTACTO_PROVEEDOR_ETB }}"
-             ESTATUS:: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: CAV30CI1058109
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_ETB }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              __________________________________________________________
       when: b2 == "100%"
 
@@ -188,10 +188,10 @@
              CPE(COD)(X)<-- MPLS<-- CPE ETB(MILL)
              CPE -> 10.246.220.2
              {{ a4.stdout_lines}}
-             GERENTE DE CUENTA:: "{{ GTE_CUENTA_CODENSA }}"
-             CODIGO DE SERVICIO:: CAV30CI1058109
-             CONTACTO PROVEEDOR CLARO:: "{{ CONTACTO_PROVEEDOR_ETB }}"
-             ESTATUS:: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: CAV30CI1058109
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_ETB }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              
              __________________________________________________________
       when: b3 == "100%"
