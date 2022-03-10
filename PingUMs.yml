@@ -111,7 +111,7 @@
 
     - name: Prueba de Ping 10.246.220.173
       shell: |
-              ping -c 4 10.246.220.173 | grep 'packet\|rtt'
+              ping -c 4 10.246.220.190 | grep 'packet\|rtt'
       register: a3
 
     - name: debug
@@ -136,7 +136,7 @@
              |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
              * CANAL PRINCIPAL ETB
              CPE(COD)<-- MPLS(X)<-- CPE ETB(MILL)
-             PE -> 10.246.220.173
+             PE -> 10.246.220.190
              {{ a3.stdout_lines}}
              GERENTE DE CUENTA:: "{{ GTE_CUENTA_CODENSA }}"
              CODIGO DE SERVICIO:: CAV30CI1058109
