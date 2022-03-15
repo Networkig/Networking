@@ -8,7 +8,7 @@
 
     - name: Prueba de Ping 10.163.240.10
       shell: |
-              ping -c 4 10.163.240.10 | grep 'packet\|rtt'
+              ping -c 7 10.163.240.10 | grep 'packet\|rtt'
       register: a1
 
     - name: debug
@@ -41,26 +41,26 @@
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
 
              __________________________________________________________
-      when: b == "100%"
+      when: b != "0%"
 
 
-    - name: Telegram
-      telegram:
-         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
-         chat_id: -719761267
-         msg: |
-             *|||| RESULTADO DE PRUEBAS DE CONECTIVIDAD *||||
-             * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL CLARO MPC0137
-             CPE(COD)<-- MPLS(X)<-- CPE CLARO(MILL)
-             Prueba de conectividad hacia PE 10.163.240.10
-             {{ a1.stdout_lines}}
-             CANAL SE ENCUENTRA ARRIBA
-             __________________________________________________________
-      when: b != "100%"
+    #- name: Telegram
+    #  telegram:
+    #     token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+    #     chat_id: -719761267
+    #     msg: |
+    #         *|||| RESULTADO DE PRUEBAS DE CONECTIVIDAD *||||
+    #         * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL CLARO MPC0137
+    #         CPE(COD)<-- MPLS(X)<-- CPE CLARO(MILL)
+    #         Prueba de conectividad hacia PE 10.163.240.10
+    #         {{ a1.stdout_lines}}
+    #         CANAL SE ENCUENTRA ARRIBA
+    #         __________________________________________________________
+    #  when: b != "100%"
 
     - name: Prueba de Ping 10.163.239.158
       shell: |
-              ping -c 4 10.163.239.158 | grep 'packet\|rtt'
+              ping -c 7 10.163.239.158 | grep 'packet\|rtt'
       register: a2
 
     - name: debug
@@ -91,27 +91,27 @@
              CONTACTO PROVEEDOR CLARO: "{{ CONTACTO_PROVEEDOR_CLARO }}"
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              __________________________________________________________
-      when: b1 == "100%"
+      when: b1 != "0%"
 
 
-    - name: Telegram
-      telegram:
-         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
-         chat_id: -719761267
-         msg: |
-             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
-             * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL CLARO MPC0137
-             CPE(COD)(X)<-- MPLS<-- CPE CLARO(MILL)
-             Prueba de conectividad hacia PE 10.163.239.158
-             {{ a2.stdout_lines}}
-             CANAL SE ENCUENTRA ARRIBA
-             __________________________________________________________
-      when: b1 != "100%"
+   # - name: Telegram
+   #   telegram:
+   #      token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+   #      chat_id: -719761267
+   #      msg: |
+   #          |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+   #          * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL CLARO MPC0137
+   #          CPE(COD)(X)<-- MPLS<-- CPE CLARO(MILL)
+   #          Prueba de conectividad hacia PE 10.163.239.158
+   #          {{ a2.stdout_lines}}
+   #          CANAL SE ENCUENTRA ARRIBA
+   #          __________________________________________________________
+   #   when: b1 != "100%"
 
 
     - name: Prueba de Ping 10.246.220.173
       shell: |
-              ping -c 4 10.246.220.173 | grep 'packet\|rtt'
+              ping -c 7 10.246.220.173 | grep 'packet\|rtt'
       register: a3
 
     - name: debug
@@ -143,26 +143,26 @@
              CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_ETB }}"
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              __________________________________________________________
-      when: b2 == "100%"
+      when: b2 != "0%"
 
 
-    - name: Telegram
-      telegram:
-         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
-         chat_id: -719761267
-         msg: |
-             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
-             * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL ETB CAV30CI1058109
-             CPE(COD)<-- MPLS(X)<-- CPE ETB(MILL)
-             Prueba de conectividad hacia PE 10.246.220.173
-             {{ a3.stdout_lines}}
-             CANAL SE ENCUENTRA ARRIBA
-             __________________________________________________________
-      when: b2 != "100%"
+    #- name: Telegram
+    #  telegram:
+    #     token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+    #     chat_id: -719761267
+    #     msg: |
+    #         |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+    #         * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL ETB CAV30CI1058109
+    #         CPE(COD)<-- MPLS(X)<-- CPE ETB(MILL)
+    #         Prueba de conectividad hacia PE 10.246.220.173
+    #         {{ a3.stdout_lines}}
+    #         CANAL SE ENCUENTRA ARRIBA
+    #         __________________________________________________________
+    #  when: b2 != "100%"
 
     - name: Prueba de Ping 10.246.220.2
       shell: |
-              ping -c 4 10.246.220.2 | grep 'packet\|rtt'
+              ping -c 7 10.246.220.2 | grep 'packet\|rtt'
       register: a4
 
     - name: debug
@@ -194,19 +194,19 @@
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              
              __________________________________________________________
-      when: b3 == "100%"
+      when: b3 != "0%"
 
 
-    - name: Telegram
-      telegram:
-         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
-         chat_id: -719761267
-         msg: |
-             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
-             * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL ETB CAV30CI1058109
-             CPE(COD)(X)<-- MPLS<-- CPE ETB(MILL)
-             Prueba de conectividad hacia PE 10.246.220.2
-             {{ a4.stdout_lines}}
-             CANAL SE ENCUENTRA ARRIBA
-             __________________________________________________________
-      when: b3 != "100%"
+    #- name: Telegram
+    #  telegram:
+    #     token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+    #     chat_id: -719761267
+    #     msg: |
+    #         |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+    #         * PRUEBA DE CONECTIVIDAD CANALES CODENSA - CANAL ETB CAV30CI1058109
+    #         CPE(COD)(X)<-- MPLS<-- CPE ETB(MILL)
+    #         Prueba de conectividad hacia PE 10.246.220.2
+    #         {{ a4.stdout_lines}}
+    #         CANAL SE ENCUENTRA ARRIBA
+    #         __________________________________________________________
+    #  when: b3 != "100%"
