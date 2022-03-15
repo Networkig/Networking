@@ -8,7 +8,7 @@
 
     - name: Prueba de Ping 10.163.240.10
       shell: |
-              ping -c 7 1.1.1.1 | grep 'packet\|rtt'
+              ping -c 7 1.1.11.12 | grep 'packet\|rtt'
       register: a1
 
     - name: debug
