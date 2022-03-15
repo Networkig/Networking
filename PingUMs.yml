@@ -261,7 +261,7 @@
          chat_id: -719761267
          msg: |
              |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
-             * CANAL CODENSA C&W CLL 26 PP MPLS
+             * CANAL CODENSA C&W CLL 26 BK MPLS
              CPE(COD)(X)<-- MPLS<-- CPE C&W(MILL)
              CPE -> 10.187.58.46
              {{ a7.stdout_lines}}
