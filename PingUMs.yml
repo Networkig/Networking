@@ -237,9 +237,9 @@
              __________________________________________________________
       when: b5 != "0%"
 
-    - name: Prueba de Ping Codensa C&W BK MPLS CLL 26
+    - name: Prueba de Ping Codensa C&W PP ZUCA
       shell: |
-              ping -c 7 10.187.58.46 | grep 'packet\|rtt'
+              ping -c 7 10.187.57.177 | grep 'packet\|rtt'
       register: a7
 
     - name: debug
@@ -261,14 +261,50 @@
          chat_id: -719761267
          msg: |
              |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
-             * CANAL CODENSA C&W CLL 26 BK MPLS
-             CPE(COD)(X)<-- MPLS<-- CPE C&W(MILL)
-             CPE -> 10.187.58.46
+             * CANAL CODENSA C&W PP ZUCA
+             CPE(COD)<-- MPLS (X)<--CPE C&W(MILL)
+             CPE -> 10.187.57.177
              {{ a7.stdout_lines}}
              GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
-             CODIGO DE SERVICIO: 2038794.CO
+             CODIGO DE SERVICIO: 2038813.CO
              CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_CW }}"
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              
              __________________________________________________________
       when: b6 != "0%"
+
+    - name: Prueba de Ping Codensa C&W BK ZUCA
+      shell: |
+              ping -c 7 10.187.57.173 | grep 'packet\|rtt'
+      register: a8
+
+    - name: debug
+      debug:
+        msg: "{{ a8.stdout_lines[0] }}"
+
+    - name: Set Fact para comando CERO
+      set_fact:
+        b7: "{{ ( a8.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
+      ignore_errors: yes
+
+    - name: debug para comando CERO
+      debug:
+        msg: "{{ b7 }}"
+
+    - name: Telegram
+      telegram:
+         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+         chat_id: -719761267
+         msg: |
+             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+             * CANAL CODENSA C&W PP ZUCA
+             CPE(COD)<-- MPLS(X)<-- CPE C&W(MILL)
+             CPE -> 10.187.57.173
+             {{ a7.stdout_lines}}
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: 2038813.CO
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_CW }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             
+             __________________________________________________________
+      when: b7 != "0%"
