@@ -158,7 +158,7 @@
              {{ a5.stdout_lines}}
              GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
              CODIGO DE SERVICIO: 2038804.CO
-             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_CW }}"
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              
              __________________________________________________________
@@ -195,7 +195,7 @@
              {{ a5.stdout_lines}}
              GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
              CODIGO DE SERVICIO: 2038803.CO
-             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_CW }}"
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              
              __________________________________________________________
@@ -231,7 +231,7 @@
              {{ a6.stdout_lines}}
              GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
              CODIGO DE SERVICIO: 2038796.CO
-             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_CW }}"
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              
              __________________________________________________________
@@ -267,7 +267,7 @@
              {{ a7.stdout_lines}}
              GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
              CODIGO DE SERVICIO: 2038794.CO
-             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_CW }}"
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
              
              __________________________________________________________
