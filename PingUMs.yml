@@ -11,19 +11,10 @@
               ping -c 7 10.163.240.10 | grep 'packet\|rtt'
       register: a1
 
-    - name: debug
-      debug:
-        msg: "{{ a1.stdout_lines[0] }}"
-
     - name: Set Fact para comando CERO
       set_fact:
         b: "{{ ( a1.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
       ignore_errors: yes
-
-    - name: debug para comando CERO
-      debug:
-        msg: "{{ b }}"
-
 
     - name: Telegram
       telegram:
@@ -49,18 +40,10 @@
               ping -c 7 10.163.239.158 | grep 'packet\|rtt'
       register: a2
 
-    - name: debug
-      debug:
-        msg: "{{ a2.stdout_lines[0] }}"
-
     - name: Set Fact para comando UNO
       set_fact:
         b1: "{{ ( a2.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
       ignore_errors: yes
-
-    - name: debug para comando UNO
-      debug:
-        msg: "{{ b1 }}"
 
     - name: Telegram
       telegram:
@@ -85,19 +68,10 @@
               ping -c 7 10.246.220.173 | grep 'packet\|rtt'
       register: a3
 
-    - name: debug
-      debug:
-        msg: "{{ a3.stdout_lines[0] }}"
-
     - name: Set Fact para comando TRES
       set_fact:
         b2: "{{ ( a3.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
       ignore_errors: yes
-
-    - name: debug para comando TRES
-      debug:
-        msg: "{{ b2 }}"
-
 
     - name: Telegram
       telegram:
@@ -152,3 +126,149 @@
              
              __________________________________________________________
       when: b3 != "0%"
+
+
+    - name: Prueba de Ping Codensa C&W PP CLL 26
+      shell: |
+              ping -c 7 10.187.57.185 | grep 'packet\|rtt'
+      register: a5
+
+    - name: debug
+      debug:
+        msg: "{{ a5.stdout_lines[0] }}"
+
+    - name: Set Fact para comando CERO
+      set_fact:
+        b4: "{{ ( a5.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
+      ignore_errors: yes
+
+    - name: debug para comando CERO
+      debug:
+        msg: "{{ b4 }}"
+
+    - name: Telegram
+      telegram:
+         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+         chat_id: -719761267
+         msg: |
+             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+             * CANAL CODENSA C&W CLL 26 PRINCIPAL
+             CPE(COD) <-- MPLS(X)<-- CPE C&W(MILL)
+             CPE -> 10.187.57.185
+             {{ a5.stdout_lines}}
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: 2038804.CO
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             
+             __________________________________________________________
+      when: b4 != "0%"
+
+
+    - name: Prueba de Ping Codensa C&W BK CLL 26
+      shell: |
+              ping -c 7 10.187.57.181 | grep 'packet\|rtt'
+      register: a6
+
+    - name: debug
+      debug:
+        msg: "{{ a6.stdout_lines[0] }}"
+
+    - name: Set Fact para comando CERO
+      set_fact:
+        b5: "{{ ( a6.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
+      ignore_errors: yes
+
+    - name: debug para comando CERO
+      debug:
+        msg: "{{ b5 }}"
+
+    - name: Telegram
+      telegram:
+         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+         chat_id: -719761267
+         msg: |
+             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+             * CANAL CODENSA C&W CLL 26 BACKUP
+             CPE(COD) <-- MPLS(X)<-- CPE C&W(MILL)
+             CPE -> 10.187.57.181
+             {{ a5.stdout_lines}}
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: 2038803.CO
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             
+             __________________________________________________________
+      when: b5 != "0%"
+
+    - name: Prueba de Ping Codensa C&W PP MPLS CLL 26
+      shell: |
+              ping -c 7 10.187.57.190 | grep 'packet\|rtt'
+      register: a6
+
+    - name: debug
+      debug:
+        msg: "{{ a6.stdout_lines[0] }}"
+
+    - name: Set Fact para comando CERO
+      set_fact:
+        b5: "{{ ( a6.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
+      ignore_errors: yes
+
+    - name: debug para comando CERO
+      debug:
+        msg: "{{ b5 }}"
+
+    - name: Telegram
+      telegram:
+         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+         chat_id: -719761267
+         msg: |
+             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+             * CANAL CODENSA C&W CLL 26 PP MPLS
+             CPE(COD)(X)<-- MPLS<-- CPE C&W(MILL)
+             CPE -> 10.187.57.190
+             {{ a6.stdout_lines}}
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: 2038796.CO
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             
+             __________________________________________________________
+      when: b5 != "0%"
+
+    - name: Prueba de Ping Codensa C&W BK MPLS CLL 26
+      shell: |
+              ping -c 7 10.187.58.46 | grep 'packet\|rtt'
+      register: a7
+
+    - name: debug
+      debug:
+        msg: "{{ a7.stdout_lines[0] }}"
+
+    - name: Set Fact para comando CERO
+      set_fact:
+        b6: "{{ ( a7.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
+      ignore_errors: yes
+
+    - name: debug para comando CERO
+      debug:
+        msg: "{{ b6 }}"
+
+    - name: Telegram
+      telegram:
+         token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
+         chat_id: -719761267
+         msg: |
+             |||| RESULTADO DE PRUEBAS DE CONECTIVIDAD  |||||
+             * CANAL CODENSA C&W CLL 26 PP MPLS
+             CPE(COD)(X)<-- MPLS<-- CPE C&W(MILL)
+             CPE -> 10.187.58.46
+             {{ a7.stdout_lines}}
+             GERENTE DE CUENTA: "{{ GTE_CUENTA_CODENSA }}"
+             CODIGO DE SERVICIO: 2038794.CO
+             CONTACTO PROVEEDOR ETB: "{{ CONTACTO_PROVEEDOR_C&W }}"
+             ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
+             
+             __________________________________________________________
+      when: b6 != "0%"
