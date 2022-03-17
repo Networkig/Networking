@@ -16,6 +16,17 @@
         b: "{{ ( a1.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
       ignore_errors: yes
 
+    - name: Set Fact para comando CERO
+      set_fact:
+        b1: "{{ ( a1.stdout_lines[1] | regex_replace(' ', '*')).split('*')[3]}}"
+      ignore_errors: yes
+      when: b != "100%"
+
+    - name: debug para comando CERO
+      debug:
+        msg: "{{ b1[6:-12] }}"
+      when: b != "100%"
+
     - name: Telegram
       telegram:
          token: '5206686670:AAGFed4b_U8FljBgzlKJzTtLeJ1qYRU3aTs'
@@ -32,7 +43,7 @@
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
 
              __________________________________________________________
-      when: b != "0%"
+      when: b == "100%" or b1[6:-12] | int > 20
 
 
     - name: Prueba de Ping 10.163.239.158
