@@ -1,0 +1,16 @@
+---
+- hosts: all
+  connection: local
+
+  tasks:
+
+  - name: show version
+    ios_command:
+      commands:
+          - sh run
+    register: a
+
+  - name: debug en pantalla
+    debug:
+      msg:
+         - "{{ a.stdout_lines }}"
