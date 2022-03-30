@@ -2,7 +2,7 @@
 - hosts: all
   connection: local
 
-  tasks:
+   tasks:
 
   - name: show version
     ios_command:
