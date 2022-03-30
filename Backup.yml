@@ -8,6 +8,7 @@
     ios_command:
       commands:
           - sh run
+    timeout: 30
     register: a
 
   - name: debug en pantalla
