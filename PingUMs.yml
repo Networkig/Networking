@@ -47,7 +47,7 @@
              ESTATUS: "!!!!!!! POR FAVOR VALIDAR CANAL !!!!!!!!!"
 
              __________________________________________________________
-      when: b[:-1] | int > "42" or b1[6:-12] | int > 20
+      when: b[:-1] | int > 42 or b1[6:-12] | int > 20
 
 
     - name: Prueba de Ping 10.163.239.158
