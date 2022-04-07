@@ -7,6 +7,7 @@
   - name: show version
     ios_command:
       commands:
+          - wr
           - sh run
       timeout: 30
     register: a
