@@ -24,12 +24,12 @@
       set_fact:
         b1: "{{ ( a1.stdout_lines[1] | regex_replace(' ', '*')).split('*')[3]}}"
       ignore_errors: yes
-      when: b != "100%"
+      when: b[:-1] | int < 100 
 
     - name: debug para comando CERO
       debug:
         msg: "{{ b1[6:-12] }}"
-      when: b != "100%"
+      when: b[:-1] | int < 100 
 
     - name: Telegram
       telegram:
