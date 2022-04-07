@@ -15,7 +15,11 @@
       set_fact:
         b: "{{ ( a1.stdout_lines[0]| regex_replace(' ', '*')).split('*')[5]}}"
       ignore_errors: yes
-
+      
+    - name: debug para comando CERO
+      debug:
+        msg: "{{ b:-1 }}"
+      
     - name: Set Fact para comando CERO
       set_fact:
         b1: "{{ ( a1.stdout_lines[1] | regex_replace(' ', '*')).split('*')[3]}}"
